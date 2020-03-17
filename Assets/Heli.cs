@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,7 +43,7 @@ public class Heli : MonoBehaviour
                 {
                     //Todo
                 }
-
+                if(other.name == "Bullet(Clone)") Destroy(other.gameObject);
                 break;
             
             case "Soldier" when carryCount < carryLimit:
