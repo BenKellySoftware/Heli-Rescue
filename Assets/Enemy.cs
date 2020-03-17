@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class CarryText : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
+    public Transform player;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +14,6 @@ public class CarryText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void SetCarry(int count)
-    {
-
+        transform.position =  new Vector3(Mathf.Lerp(transform.position.x, player.position.x, 0.02f),-4.5f,0);
     }
 }
