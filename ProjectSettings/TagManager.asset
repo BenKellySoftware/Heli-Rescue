@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - Soldier
+  - Repair Kit
+  - Hospital
   layers:
   - Default
   - TransparentFX

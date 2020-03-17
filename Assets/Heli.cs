@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Heli : MonoBehaviour
 {
     public float speed;
     public int lives;
     public Vector3 defaultPos;
+    public Text soldierText;
+    public Text livesText;
+    public int carryCount = 0;
+    public int carryLimit = 3;
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
@@ -24,13 +29,20 @@ public class Heli : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit");
-        if (other.tag != "Obstacle") return;
-        {
+        if (other.tag == "Obstacle") {
             lives--;
             transform.position = defaultPos;
             rb.velocity = Vector2.zero;
         }
+
+        if (other.tag == "Soldier" && carryCount < carryLimit)
+        {
+            carryCount++;
+            Destroy(other.gameObject);
+            soldierText.text = "Soldiers: " + carryCount + "/" + carryLimit;
+            
+        }
+        
     }
     
 }
