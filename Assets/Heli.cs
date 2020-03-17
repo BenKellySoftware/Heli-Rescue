@@ -10,8 +10,10 @@ public class Heli : MonoBehaviour
     public Vector3 defaultPos;
     public Text soldierText;
     public Text livesText;
+    public Text scoreText;
     public int carryCount = 0;
     public int carryLimit = 3;
+    public int score = 0;
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
@@ -29,20 +31,33 @@ public class Heli : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Obstacle") {
-            lives--;
-            transform.position = defaultPos;
-            rb.velocity = Vector2.zero;
-        }
-
-        if (other.tag == "Soldier" && carryCount < carryLimit)
+        switch (other.tag)
         {
-            carryCount++;
-            Destroy(other.gameObject);
-            soldierText.text = "Soldiers: " + carryCount + "/" + carryLimit;
+            case "Obstacle":
+                livesText.text = "Lives: " + --lives;
             
+                transform.position = defaultPos;
+                rb.velocity = Vector2.zero;
+                if (lives == 0)
+                {
+                    //Todo
+                }
+
+                break;
+            
+            case "Soldier" when carryCount < carryLimit:
+                carryCount++;
+                Destroy(other.gameObject);
+                soldierText.text = "Soldiers: " + carryCount + "/" + carryLimit;
+                break;
+            
+            case "Hospital":
+                score += carryCount;
+                carryCount = 0;
+                scoreText.text = "Score: " + score;
+                soldierText.text = "Soldiers: " + carryCount + "/" + carryLimit;
+                break;
         }
-        
     }
     
 }
