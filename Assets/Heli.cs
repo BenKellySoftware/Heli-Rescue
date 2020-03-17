@@ -16,6 +16,10 @@ public class Heli : MonoBehaviour
     public int carryLimit = 3;
     public int score = 0;
 
+    public Vector3[] spawnLocations;
+    public GameObject repairKit;
+    public GameObject soldier;
+
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -57,6 +61,14 @@ public class Heli : MonoBehaviour
                 carryCount = 0;
                 scoreText.text = "Score: " + score;
                 soldierText.text = "Soldiers: " + carryCount + "/" + carryLimit;
+
+                if (GameObject.FindGameObjectsWithTag("Soldier").Length == 0)
+                {
+                    foreach (var pos in spawnLocations)
+                    {
+                        Instantiate(Random.value > 0.5 ? soldier : repairKit, pos, Quaternion.identity);
+                    }
+                }
                 break;
         }
     }
