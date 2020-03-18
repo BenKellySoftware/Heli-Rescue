@@ -56,6 +56,12 @@ public class Heli : MonoBehaviour
                 soldierText.text = "Soldiers: " + carryCount + "/" + carryLimit;
                 break;
             
+            case "Repair Kit" when lives < 3:
+                livesText.text = "Lives: " + ++lives;
+
+                Destroy(other.gameObject);
+                break;
+            
             case "Hospital":
                 score += carryCount;
                 carryCount = 0;
@@ -66,7 +72,7 @@ public class Heli : MonoBehaviour
                 {
                     foreach (var pos in spawnLocations)
                     {
-                        Instantiate(Random.value > 0.5 ? soldier : repairKit, pos, Quaternion.identity);
+                        Instantiate(Random.value > 0.2 ? soldier : repairKit, pos, Quaternion.identity);
                     }
                 }
                 break;
