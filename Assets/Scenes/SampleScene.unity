@@ -265,7 +265,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85297267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.119, y: 2.68, z: 0}
+  m_LocalPosition: {x: -5.119, y: 2.68, z: 1}
   m_LocalScale: {x: 4.4173193, y: 4.4173193, z: 4.4173193}
   m_Children: []
   m_Father: {fileID: 0}
@@ -474,8 +474,8 @@ MonoBehaviour:
   repairKit: {fileID: 7831576088165543026, guid: df6fb4b63d70b6044a87e724cded7cd0,
     type: 3}
   soldier: {fileID: 8166374398961463438, guid: ad084cf08a43a064f881a711dca5784c, type: 3}
-  gameOverScreen: {fileID: 0}
-  finalScore: {fileID: 0}
+  gameOverScreen: {fileID: 394813527}
+  finalScore: {fileID: 633198488}
 --- !u!60 &203501180
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1093,7 +1093,7 @@ GameObject:
   - component: {fileID: 633198489}
   - component: {fileID: 633198488}
   m_Layer: 5
-  m_Name: ScoreText
+  m_Name: FinalScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1725,7 +1725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233135553}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.13, y: -1.65, z: 0}
+  m_LocalPosition: {x: -6.13, y: -1.65, z: -0.24}
   m_LocalScale: {x: 0.411344, y: 0.411344, z: 0.411344}
   m_Children: []
   m_Father: {fileID: 0}
