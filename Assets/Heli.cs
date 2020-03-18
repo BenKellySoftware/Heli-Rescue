@@ -7,7 +7,21 @@ using UnityEngine.UI;
 public class Heli : MonoBehaviour
 {
     public float speed;
-    public int lives;
+
+    public GameObject fire0;
+    public GameObject fire1;
+    private int _lives = 2;
+    public int lives
+    {
+        get { return _lives; }
+        set
+        {
+            _lives = value;
+            fire1.SetActive(_lives < 2);
+            fire0.SetActive(_lives < 1);
+        }
+    }
+
     public Vector3 defaultPos;
     public Text soldierText;
     public Text livesText;
