@@ -9,6 +9,7 @@
         <e p="Bullet.cs" t="Include" />
         <e p="Enemy.cs" t="Include" />
         <e p="Heli.cs" t="Include" />
+        <e p="SceneReset.cs" t="Include" />
       </e>
       <e p="Heli-Rescue.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />

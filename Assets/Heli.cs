@@ -34,6 +34,9 @@ public class Heli : MonoBehaviour
     public GameObject repairKit;
     public GameObject soldier;
 
+    public GameObject gameOverScreen;
+    public Text finalScore;
+    
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -57,9 +60,10 @@ public class Heli : MonoBehaviour
             
                 transform.position = defaultPos;
                 rb.velocity = Vector2.zero;
-                if (lives == 0)
+                if (lives < 0)
                 {
-                    //Todo
+                    finalScore.text = "Score \n" + score;
+                    gameOverScreen.SetActive(true);
                 }
                 if(other.name == "Bullet(Clone)") Destroy(other.gameObject);
                 break;
